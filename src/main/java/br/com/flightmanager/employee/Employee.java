@@ -1,9 +1,10 @@
 package br.com.flightmanager.employee;
 
-import com.sun.istack.internal.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -14,8 +15,9 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "EMPLOYEE", schema = "FM")
-@SequenceGenerator(sequenceName = "SEQ_EMPLOYEE", schema = "FM", name = "EMPLOYEE_SEQUENCE", initialValue = 1, allocationSize = 1)
+@AllArgsConstructor
+@Table(name = "employee", schema = "fm")
+@SequenceGenerator(sequenceName = "seq_employee", schema = "fm", name = "EMPLOYEE_SEQUENCE", initialValue = 1, allocationSize = 1)
 public class Employee implements Serializable {
 
     //TODO Transform it to a Abstract class and create abstraction for the Pilot Employee type
@@ -24,10 +26,14 @@ public class Employee implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMPLOYEE_SEQUENCE")
-    @Column(name = "ID_EMPLOYEE")
+    @Column(name = "id_employee")
     private Long id;
 
     @NotNull
-    @Column(name = "NAME")
+    @Column(name = "name")
     private String name;
+
+    /* Default Constructor required by JPA for entity mapping */
+    private Employee() {
+    }
 }

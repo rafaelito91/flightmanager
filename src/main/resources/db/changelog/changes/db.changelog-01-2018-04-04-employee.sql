@@ -2,20 +2,21 @@
 
 
 --changeset rafael-ito:01
---comment: Create sequence SEQ_EMPLOYEE
-CREATE SEQUENCE FM.SEQ_EMPLOYEE MINVALUE 1 MAXVALUE 999999999999999999 INCREMENT BY 1 START WITH 1;
---rollback DROP SEQUENCE FM.SEQ_EMPLOYEE;
+--comment: create sequence seq_employee
+create sequence fm.seq_employee minvalue 1 maxvalue 999999999999999999 increment by 1 start with 1;
+--rollback drop sequence fm.seq_employee;
 
 --changeset rafael-ito:02
---comment: Create employees table
-CREATE TABLE FM.EMPLOYEE (
-    ID_EMPLOYEE SERIAL PRIMARY KEY,
-    NAME VARCHAR(255) NOT NULL
+--comment: create employees table
+create table fm.employee (
+    id_employee serial primary key,
+    name varchar(255) not null
 )
---rollback DROP TABLE FM.EMPLOYEE;
+--rollback drop table fm.employee;
+
 
 --changeset rafael-ito:03
---comment: Inserting fictional data
-INSERT INTO FM.EMPLOYEE (NAME) VALUES ('João da Silva');
-INSERT INTO FM.EMPLOYEE (NAME) VALUES ('Maria Helena');
---rollback DELETE FROM FM.EMPLOYEE WHERE NAME IN ('João da Silva', 'Maria Helena');
+--comment: inserting fictional data
+insert into fm.employee (name) values ('João da Silva');
+insert into fm.employee (name) values ('Maria Helena');
+--rollback delete from fm.employee where name in ('João da Silva', 'Maria Helena');
