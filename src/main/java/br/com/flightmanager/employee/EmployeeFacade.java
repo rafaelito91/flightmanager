@@ -1,5 +1,6 @@
 package br.com.flightmanager.employee;
 
+import br.com.flightmanager.restapi.EmployeeController;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,7 @@ import java.util.List;
  *
  * @author Rafael Kyoshi Ito
  * @version 1.0 04/04/2018
+ * @see EmployeeController
  */
 @Component
 @AllArgsConstructor

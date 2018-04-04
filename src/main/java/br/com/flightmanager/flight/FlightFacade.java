@@ -1,5 +1,6 @@
 package br.com.flightmanager.flight;
 
+import br.com.flightmanager.restapi.FlightController;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,7 @@ import java.util.List;
  *
  * @author Rafael Kyoshi Ito
  * @version 1.0 04/04/2018
+ * @see FlightController
  */
 @Component
 @AllArgsConstructor

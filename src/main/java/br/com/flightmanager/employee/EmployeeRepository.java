@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author Rafael Kyoshi Ito
  * @version 1.0 04/04/2018
+ * @see EmployeeServices
  */
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 }
