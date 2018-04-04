@@ -1,0 +1,20 @@
+--liquibase formatted sql
+
+
+--changeset rafael-ito:04
+--comment: Create sequence SEQ_FLIGHT
+CREATE SEQUENCE FM.SEQ_FLIGHT MINVALUE 1 MAXVALUE 999999999999999999 INCREMENT BY 1 START WITH 1;
+--rollback DROP SEQUENCE FM.SEQ_FLIGHT;
+
+--changeset rafael-ito:05
+--comment: Create flight table
+CREATE TABLE FM.FLIGHT (
+    ID_FLIGHT SERIAL PRIMARY KEY,
+    ID_PILOT BIGINT NOT NULL
+)
+--rollback DROP TABLE FM.FLIGHT;
+
+--changeset rafael-ito:06
+--comment: Create Pilot foreign key constraint
+ALTER TABLE FM.FLIGHT ADD CONSTRAINT FK1FLIGHT FOREIGN KEY (ID_PILOT) REFERENCES FM.EMPLOYEE (ID_EMPLOYEE);
+--rollback ALTER TABLE FM.FLIGHT DROP CONSTRAINT FK1FLIGHT;

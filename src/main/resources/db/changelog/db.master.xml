@@ -7,5 +7,6 @@
     </preConditions>
 
     <!-- Sprint 00 -->
-    <include file="src/main/resources/db/changelog/changes/db.changelog-2018-04-04.sql"/>
+    <include file="src/main/resources/db/changelog/changes/db.changelog-01-2018-04-04-employee.sql"/>
+    <include file="src/main/resources/db/changelog/changes/db.changelog-02-2018-04-04-flight.sql"/>
 </databaseChangeLog>
