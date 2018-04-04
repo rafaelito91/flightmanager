@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.com.flightmanager</groupId>
-	<artifactId>Flight Manager</artifactId>
+	<artifactId>FlightManager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -22,6 +22,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+
+		<datasource.url>jdbc:postgresql://localhost:5432/flightmanager</datasource.url>
+		<datasource.username>postgres</datasource.username>
+		<datasource.password>admin</datasource.password>
+		<cors.allowed.origins>*</cors.allowed.origins>
+		<liquibase.username>${datasource.username}</liquibase.username>
+		<liquibase.password>${datasource.password}</liquibase.password>
+		<liquibase.drop-database>true</liquibase.drop-database>
+		<liquibase.phase>install</liquibase.phase>
+		<liquibase.goal>update</liquibase.goal>
+		<liquibase.context>local</liquibase.context>
+		<liquibase.skip>false</liquibase.skip>
+		<liquibase.url>${datasource.url}</liquibase.url>
+		<liquibase.schema>fm</liquibase.schema>
 	</properties>
 
 	<dependencies>
@@ -40,6 +54,10 @@
 			<artifactId>spring-restdocs-mockmvc</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -47,6 +65,44 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>3.5.3</version>
+				<configuration>
+					<skip>${liquibase.skip}</skip>
+					<changeLogFile>src/main/resources/db/changelog/db.master.xml</changeLogFile>
+					<verbose>true</verbose>
+					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+					<driver>org.postgresql.Driver</driver>
+					<databaseChangeLogTableName>DATABASECHANGELOG</databaseChangeLogTableName>
+					<databaseChangeLogLockTableName>DATABASECHANGELOGLOCK</databaseChangeLogLockTableName>
+					<dropFirst>${liquibase.drop-database}</dropFirst>
+					<defaultSchemaName>${liquibase.schema}</defaultSchemaName>
+					<schemas>${liquibase.schema}</schemas>
+					<contexts>${liquibase.context}</contexts>
+					<url>${liquibase.url}</url>
+					<username>${datasource.username}</username>
+					<password>${datasource.password}</password>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.liquibase</groupId>
+						<artifactId>liquibase-core</artifactId>
+						<version>3.5.3</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>liquibase-update</id>
+						<phase>${liquibase.phase}</phase>
+						<goals>
+							<goal>${liquibase.goal}</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

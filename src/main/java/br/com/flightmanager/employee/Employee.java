@@ -1,5 +1,7 @@
 package br.com.flightmanager.employee;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 
 /**
@@ -11,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "EMPLOYEE", schema = "FM")
 @SequenceGenerator(sequenceName = "SEQ_EMPLOYEE", schema = "FM", name = "EMPLOYEE_SEQUENCE", initialValue = 1, allocationSize = 1)
-public abstract class Employee {
+public class Employee {
 
     /** Field description */
     private static final long serialVersionUID = 1L;
@@ -21,8 +23,7 @@ public abstract class Employee {
     @Column(name = "ID_EMPLOYEE")
     private Long id;
 
+    @NotNull
     @Column(name = "NAME")
     private String name;
-
-
 }

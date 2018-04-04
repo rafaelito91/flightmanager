@@ -1,4 +1,4 @@
-package br.com.flightmanager.Flight.Manager;
+package br.com.flightmanager.config;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
