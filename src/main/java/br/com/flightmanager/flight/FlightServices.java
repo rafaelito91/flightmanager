@@ -1,6 +1,8 @@
 package br.com.flightmanager.flight;
 
 import br.com.flightmanager.employee.Employee;
+import br.com.flightmanager.flight.city.City;
+import br.com.flightmanager.flight.city.CityRepository;
 import lombok.AllArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.stereotype.Component;
@@ -23,6 +25,8 @@ public class FlightServices {
 
     private final FlightRepository flightRepository;
 
+    private final CityRepository cityRepository;
+
     /**
      * Obtains all flight objects persisted in the database
      *
@@ -39,5 +43,13 @@ public class FlightServices {
      */
     public Flight obtainFlightById(Long id) {
         return flightRepository.findById(id).get();
+    }
+
+    /**
+     * Obtains all city objects persisted in the database
+     * @return A {@link List} of {@link City} objects
+     */
+    public List<City> obtainCities() {
+        return IterableUtils.toList(cityRepository.findAll());
     }
 }

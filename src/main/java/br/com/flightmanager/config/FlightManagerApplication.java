@@ -1,9 +1,13 @@
 package br.com.flightmanager.config;
 
+import br.com.flightmanager.aircraft.Aircraft;
+import br.com.flightmanager.aircraft.AircraftRepository;
 import br.com.flightmanager.employee.Employee;
 import br.com.flightmanager.employee.EmployeeRepository;
 import br.com.flightmanager.flight.Flight;
 import br.com.flightmanager.flight.FlightRepository;
+import br.com.flightmanager.flight.city.City;
+import br.com.flightmanager.flight.city.CityRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,8 +28,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableAutoConfiguration
 @ComponentScan(basePackages = "br.com.flightmanager",
 		excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = {"br.com.flightmanager.config"}))
-@EnableJpaRepositories(basePackageClasses = {EmployeeRepository.class, FlightRepository.class})
-@EntityScan(basePackageClasses = {Employee.class, Flight.class})
+@EnableJpaRepositories(basePackageClasses = {AircraftRepository.class, CityRepository.class, EmployeeRepository.class, FlightRepository.class})
+@EntityScan(basePackageClasses = {Aircraft.class, City.class, Employee.class, Flight.class})
 public class FlightManagerApplication {
 
 	public static void main(String[] args) {

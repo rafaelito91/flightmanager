@@ -7,5 +7,7 @@
     </preConditions>
 
     <include file="src/main/resources/db/changelog/changes/db.changelog-01-2018-04-04-employee.sql"/>
-    <include file="src/main/resources/db/changelog/changes/db.changelog-02-2018-04-04-flight.sql"/>
+    <include file="src/main/resources/db/changelog/changes/db.changelog-02-2018-04-04-aircraft.sql"/>
+    <include file="src/main/resources/db/changelog/changes/db.changelog-03-2018-04-04-city.sql"/>
+    <include file="src/main/resources/db/changelog/changes/db.changelog-04-2018-04-04-flight.sql"/>
 </databaseChangeLog>

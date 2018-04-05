@@ -1,5 +1,6 @@
 package br.com.flightmanager.flight;
 
+import br.com.flightmanager.flight.city.City;
 import br.com.flightmanager.restapi.FlightController;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -35,5 +36,13 @@ public class FlightFacade {
      */
     public Flight obtainFlightById(Long id) {
         return flightService.obtainFlightById(id);
+    }
+
+    /**
+     * Obtains all city objects persisted in the database
+     * @return A {@link List} of {@link City} objects
+     */
+    public List<City> obtainCities() {
+        return flightService.obtainCities();
     }
 }
