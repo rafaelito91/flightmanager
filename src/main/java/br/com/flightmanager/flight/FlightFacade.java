@@ -5,6 +5,7 @@ import br.com.flightmanager.restapi.FlightController;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -19,6 +20,14 @@ import java.util.List;
 public class FlightFacade {
 
     private final FlightServices flightService;
+
+    /**
+     * Obtains all city objects persisted in the database
+     * @return A {@link List} of {@link City} objects
+     */
+    public List<City> obtainCities() {
+        return flightService.obtainCities();
+    }
 
     /**
      * Obtains all flight objects persisted in the database
@@ -38,11 +47,8 @@ public class FlightFacade {
         return flightService.obtainFlightById(id);
     }
 
-    /**
-     * Obtains all city objects persisted in the database
-     * @return A {@link List} of {@link City} objects
-     */
-    public List<City> obtainCities() {
-        return flightService.obtainCities();
+    @Transactional
+    public Flight registerFlight(Flight flight) {
+        return null;
     }
 }

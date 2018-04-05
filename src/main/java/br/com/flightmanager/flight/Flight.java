@@ -7,7 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * Represents a Flight for the Airline Company
@@ -30,17 +32,29 @@ public class Flight implements Serializable {
     @Column(name = "id_flight")
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pilot_id")
     private Employee pilot;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aircraft_id")
     private Aircraft aircraft;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "city_id")
-    private City city;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "origin")
+    private City origin;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "destination")
+    private City destination;
+
+    @NotNull
+    @Column(name = "start")
+    private LocalDateTime start;
+
+    @NotNull
+    @Column(name = "end")
+    private LocalDateTime end;
 
     /* Default Constructor required by JPA for entity mapping */
     private Flight() {
