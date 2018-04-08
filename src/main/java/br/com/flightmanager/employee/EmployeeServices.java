@@ -27,4 +27,15 @@ public class EmployeeServices {
     public List<Employee> obtainEmployees() {
         return IterableUtils.toList(employeeRepository.findAll());
     }
+
+    /**
+     * Obtains a entity object (if exists) in the database that has the same core attributes as the informed entity.
+     * Otherwise, returns the informed entity
+     * @param employee informed entity
+     * @return The existing entity on the database or the informed entity
+     */
+    public Employee getExistingEmployee(Employee employee) {
+        Employee existingEmployee = employeeRepository.getExisting(employee.getId(), employee.getName());
+        return existingEmployee == null ? employee : existingEmployee;
+    }
 }

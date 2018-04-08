@@ -17,6 +17,6 @@ create table fm.employee (
 
 --changeset rafael-ito:03
 --comment: inserting fictional data
-insert into fm.employee (name) values ('João da Silva');
-insert into fm.employee (name) values ('Maria Helena');
+insert into fm.employee (id_employee, name) values (nextval('fm.seq_employee'), 'João da Silva');
+insert into fm.employee (id_employee, name) values (nextval('fm.seq_employee'), 'Maria Helena');
 --rollback delete from fm.employee where name in ('João da Silva', 'Maria Helena');

@@ -47,8 +47,13 @@ public class FlightFacade {
         return flightService.obtainFlightById(id);
     }
 
+    /**
+     * Regiister a {@link Flight} object
+     * @param flight {@link Flight} that is going to be persisted
+     * @return Persisted {@link Flight} object
+     */
     @Transactional
     public Flight registerFlight(Flight flight) {
-        return null;
+        return flightService.registerFlight(flight);
     }
 }

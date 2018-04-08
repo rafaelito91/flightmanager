@@ -41,6 +41,6 @@ alter table fm.flight add constraint fk4flight foreign key (destination) referen
 
 --changeset rafael-ito:16
 --comment: adding flights
-insert into fm.flight (pilot_id, aircraft_id, origin, destination, start, final) values (1, 1, 1, 2, '2018-04-05 17:59:32', '2018-04-06 12:12:11');
-insert into fm.flight (pilot_id, aircraft_id, origin, destination, start, final) values (2, 2, 2, 1, '2018-03-06 14:29:42', '2018-03-07 12:12:11');
+insert into fm.flight (id_flight, pilot_id, aircraft_id, origin, destination, start, final) values (nextval('fm.seq_flight'), 1, 1, 1, 2, '2018-04-05 17:59:32', '2018-04-06 12:12:11');
+insert into fm.flight (id_flight, pilot_id, aircraft_id, origin, destination, start, final) values (nextval('fm.seq_flight'), 2, 2, 2, 1, '2018-03-06 14:29:42', '2018-03-07 12:12:11');
 --rollback delete from fm.flight where id

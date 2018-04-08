@@ -27,4 +27,15 @@ public class AircraftServices {
     public List<Aircraft> obtainAircrafts() {
         return IterableUtils.toList(aircraftRepository.findAll());
     }
+
+    /**
+     * Obtains a entity object (if exists) in the database that has the same core attributes as the informed entity.
+     * Otherwise, returns the informed entity
+     * @param aircraft informed entity
+     * @return The existing entity on the database or the informed entity
+     */
+    public Aircraft getExistingAircraft(Aircraft aircraft) {
+        Aircraft existingAircraft = aircraftRepository.getExisting(aircraft.getId(), aircraft.getModel());
+        return existingAircraft == null ? aircraft : existingAircraft;
+    }
 }

@@ -17,6 +17,6 @@ create table fm.aircraft (
 
 --changeset rafael-ito:06
 --comment: inserting fictional data
-insert into fm.aircraft (model) values ('Phenom 300');
-insert into fm.aircraft (model) values ('E2');
+insert into fm.aircraft (id_aircraft, model) values (nextval('fm.seq_aircraft'), 'Phenom 300');
+insert into fm.aircraft (id_aircraft, model) values (nextval('fm.seq_aircraft'), 'E2');
 --rollback delete from fm.aircraft where model in ('Phenom 300', 'E2');

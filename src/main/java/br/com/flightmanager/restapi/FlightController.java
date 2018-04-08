@@ -6,10 +6,7 @@ import br.com.flightmanager.flight.city.City;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +26,11 @@ public class FlightController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE )
     public List<Flight> getFlights() {
         return flightFacade.obtainFlights();
+    }
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public Flight registerFlight(@RequestBody Flight flight) {
+        return flightFacade.registerFlight(flight);
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

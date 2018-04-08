@@ -17,6 +17,6 @@ create table fm.city (
 
 --changeset rafael-ito:09
 --comment: inserting fictional data
-insert into fm.city (name) values ('São José dos Campos');
-insert into fm.city (name) values ('Madrid');
+insert into fm.city (id_city, name) values (nextval('fm.seq_city'), 'São José dos Campos');
+insert into fm.city (id_city, name) values (nextval('fm.seq_city'), 'Madrid');
 --rollback delete from fm.city where model in ('Phenom 300', 'E2');

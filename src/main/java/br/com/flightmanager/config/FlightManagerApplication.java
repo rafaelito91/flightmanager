@@ -46,7 +46,7 @@ public class FlightManagerApplication {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/flights").allowedOrigins("http://localhost:9000");
+                registry.addMapping("/flights").allowedMethods("GET", "POST");
                 registry.addMapping("/aircrafts").allowedOrigins("http://localhost:9000");
                 registry.addMapping("/employees").allowedOrigins("http://localhost:9000");
 			}

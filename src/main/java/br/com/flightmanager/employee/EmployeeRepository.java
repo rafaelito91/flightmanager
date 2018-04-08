@@ -1,5 +1,6 @@
 package br.com.flightmanager.employee;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -10,4 +11,7 @@ import org.springframework.data.repository.CrudRepository;
  * @see EmployeeServices
  */
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+
+    @Query("select e from #{#entityName} e where e.id = ?1 or (?1 = null and e.name = ?2)")
+    Employee getExisting(Long id, String name);
 }
