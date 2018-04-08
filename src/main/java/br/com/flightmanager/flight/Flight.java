@@ -3,6 +3,7 @@ package br.com.flightmanager.flight;
 import br.com.flightmanager.aircraft.Aircraft;
 import br.com.flightmanager.employee.Employee;
 import br.com.flightmanager.flight.city.City;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -50,10 +51,12 @@ public class Flight implements Serializable {
 
     @NotNull
     @Column(name = "start")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
     private LocalDateTime start;
 
     @NotNull
-    @Column(name = "end")
+    @Column(name = "final")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
     private LocalDateTime end;
 
     /* Default Constructor required by JPA for entity mapping */
