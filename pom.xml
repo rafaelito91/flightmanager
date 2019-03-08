@@ -25,7 +25,7 @@
 
 		<datasource.url>jdbc:postgresql://localhost:5432/flightmanager</datasource.url>
 		<datasource.username>postgres</datasource.username>
-		<datasource.password>admin</datasource.password>
+		<datasource.password>Embraer190</datasource.password>
 		<cors.allowed.origins>*</cors.allowed.origins>
 
 		<liquibase.username>${datasource.username}</liquibase.username>
@@ -70,6 +70,13 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
+		</dependency>
+
+		<!-- Tests -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.194</version>
 		</dependency>
 
 		<!-- Utils -->

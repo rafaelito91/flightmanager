@@ -2,6 +2,9 @@ package br.com.flightmanager.config;
 
 import br.com.flightmanager.aircraft.Aircraft;
 import br.com.flightmanager.aircraft.AircraftRepository;
+import br.com.flightmanager.candidate.Candidate;
+import br.com.flightmanager.candidate.CandidatePhoto;
+import br.com.flightmanager.candidate.CandidateRepository;
 import br.com.flightmanager.config.converter.LocalDateTimeAttributeConverter;
 import br.com.flightmanager.employee.Employee;
 import br.com.flightmanager.employee.EmployeeRepository;
@@ -33,8 +36,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableAutoConfiguration
 @ComponentScan(basePackages = "br.com.flightmanager",
 		excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = {"br.com.flightmanager.config"}))
-@EnableJpaRepositories(basePackageClasses = {AircraftRepository.class, CityRepository.class, EmployeeRepository.class, FlightRepository.class})
-@EntityScan(basePackageClasses = {Aircraft.class, City.class, Employee.class, Flight.class, LocalDateTimeAttributeConverter.class})
+@EnableJpaRepositories(basePackageClasses = {AircraftRepository.class, CityRepository.class, EmployeeRepository.class, FlightRepository.class, CandidateRepository.class})
+@EntityScan(basePackageClasses = {Aircraft.class, City.class, Employee.class, Flight.class, LocalDateTimeAttributeConverter.class, Candidate.class, CandidatePhoto.class})
 public class FlightManagerApplication {
 
 	public static void main(String[] args) {
