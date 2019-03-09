@@ -1,6 +1,6 @@
 package br.com.flightmanager.candidate;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CandidateRepository extends CrudRepository<Candidate, Long> {
+public interface CandidateRepository extends JpaRepository<Candidate, Long> {
 }

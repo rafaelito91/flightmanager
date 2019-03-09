@@ -42,4 +42,10 @@ public class Candidate {
     public String toString() {
         return "Nome: " + name;
     }
+
+    public void adjustAssociatedIndexes() {
+        for (CandidatePhoto candidatePhoto : photos) {
+            candidatePhoto.setCandidate(this);
+        }
+    }
 }

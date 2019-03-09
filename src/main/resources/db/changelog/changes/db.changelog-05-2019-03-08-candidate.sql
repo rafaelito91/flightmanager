@@ -28,7 +28,7 @@ create table fm.candidate (
 create table fm.candidate_photo (
     id_candidate_photo serial primary key,
     path varchar(1000) not null,
-    candidate_id bigint not null
+    candidate_id bigint
 )
 --rollback drop table fm.flight;
 
