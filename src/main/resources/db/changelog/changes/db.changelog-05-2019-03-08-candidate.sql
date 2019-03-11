@@ -19,7 +19,10 @@ create table fm.candidate (
     name varchar(255) not null,
     age bigint,
     distance bigint,
-    description varchar(2000)
+    description varchar(2000),
+    insta varchar(255),
+    whats varchar(255)
+
 )
 --rollback drop table fm.flight;
 

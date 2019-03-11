@@ -33,6 +33,12 @@ public class Candidate {
     @Column
     private String description;
 
+    @Column
+    private String insta;
+
+    @Column
+    private String whats;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "candidate")
     private List<CandidatePhoto> photos;
 
