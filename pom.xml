@@ -25,7 +25,7 @@
 
 		<datasource.url>jdbc:postgresql://localhost:5432/flightmanager</datasource.url>
 		<datasource.username>postgres</datasource.username>
-		<datasource.password>Embraer190</datasource.password>
+		<datasource.password>postgres</datasource.password>
 		<cors.allowed.origins>*</cors.allowed.origins>
 
 		<liquibase.username>${datasource.username}</liquibase.username>
